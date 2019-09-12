@@ -1,3 +1,7 @@
+
+origin repo [https://github.com/Bychin/Qt-simple-calculator](https://github.com/Bychin/Qt-simple-calculator)
+---
+
 # Simple Qt Calculator
 
 Simple flat-designed calculator on C++ and Qt

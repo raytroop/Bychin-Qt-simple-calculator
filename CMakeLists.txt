@@ -3,28 +3,18 @@ project(lab2_cpp_calculator)
 
 set(CMAKE_CXX_STANDARD 11)
 
+#设置find_package的.cmake搜索路径
+set(CMAKE_PREFIX_PATH /home/software/Qt5.12.3/5.12.3/gcc_64/lib/cmake)
+set(CMAKE_AUTOMOC ON)
+
+find_package(Qt5Widgets REQUIRED)
+find_package(Qt5Gui REQUIRED)
+find_package(Qt5Core REQUIRED)
+find_package(Qt5OpenGL REQUIRED)
+
+set(TARGET lab2_cpp_calculator)
 set(SOURCE_FILES main.cpp mainwindow.ui mainwindow.cpp mainwindow.h)
 
-#set(Qt5Core_DIR "/opt/Qt/5.9.3/gcc_64/lib/cmake/Qt5Core/")
-#set(Qt5Widgets_DIR "/opt/Qt/5.9.3/gcc_64/lib/cmake/Qt5Widgets/")
-
-SET(CMAKE_AUTOUIC ON)
-
-set (CMAKE_AUTOMOC ON)
-set (CMAKE_INCLUDE_CURRENT_DIR ON)
-
-include_directories(
-        ${CMAKE_CURRENT_BINARY_DIR}
-        ${CMAKE_CURRENT_SOURCE_DIR}
-)
-
-add_executable(lab2_cpp_calculator ${SOURCE_FILES})
-
-
-
-find_package( Qt5Core REQUIRED )
-find_package( Qt5Widgets REQUIRED )
-find_package( Qt5Gui REQUIRED )
-
-
-qt5_use_modules( lab2_cpp_calculator Core Widgets Gui )
+add_executable(${TARGET} ${SOURCE_FILES})
+target_link_libraries(${TARGET} Qt5::Widgets Qt5::Core Qt5::Gui Qt5::OpenGL)
+target_include_directories(${TARGET} PUBLIC ${CMAKE_SOURCE_DIR})

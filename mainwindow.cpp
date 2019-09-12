@@ -18,7 +18,7 @@
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
-    setWindowTitle("Калькулятор (обычный)");
+    setWindowTitle("Calculator (Standard)");
     setWindowOpacity(0.98);
     setMinimumSize(380, 450);
     setMaximumSize(380, 450);
@@ -47,14 +47,14 @@ void MainWindow::SwitchMode() {
     complCalcWidget->setParent(this);
     if (!ui->radioButtonSimple->isChecked()) {
         delete mainLayout;
-        setWindowTitle("Калькулятор (инженерный)");
+        setWindowTitle("Calculator (Scientific)");
         setMinimumSize(685, 450);
         setMaximumSize(685, 450);
         SpawnComplMode();
     }
     else {
         delete mainLayout;
-        setWindowTitle("Калькулятор (обычный)");
+        setWindowTitle("Calculator (Standard)");
         setMinimumSize(380, 450);
         setMaximumSize(380, 450);
         SpawnSimpleMode();
